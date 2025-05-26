@@ -128,7 +128,7 @@
           .getElementById("userForm")
           .addEventListener("submit", function (e) {
             const checkedCount = document.querySelectorAll(
-              'input[name="present"]:checked'
+              'input[name="present[]"]:checked'
             ).length;
             if (checkedCount === 0) {
               e.preventDefault();
