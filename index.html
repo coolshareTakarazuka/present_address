@@ -45,47 +45,47 @@
 
       <div class="present-grid">
         <label
-          ><input type="checkbox" name="present" value="景品1" /><img
+          ><input type="checkbox" name="present[]" value="景品1" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品2" /><img
+          ><input type="checkbox" name="present[]" value="景品2" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品3" /><img
+          ><input type="checkbox" name="present[]" value="景品3" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品4" /><img
+          ><input type="checkbox" name="present[]" value="景品4" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品5" /><img
+          ><input type="checkbox" name="present[]" value="景品5" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品6" /><img
+          ><input type="checkbox" name="present[]" value="景品6" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品7" /><img
+          ><input type="checkbox" name="present[]" value="景品7" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品8" /><img
+          ><input type="checkbox" name="present[]" value="景品8" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present" value="景品9" /><img
+          ><input type="checkbox" name="present[]" value="景品9" /><img
             src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
@@ -95,7 +95,7 @@
       <label
         ><input
           type="checkbox"
-          name="present"
+          name="present[]"
           value="どれでもいい"
           class="other"
         />どれでもいい</label
@@ -124,37 +124,16 @@
       </style>
 
       <script>
-        document
+          document
           .getElementById("userForm")
           .addEventListener("submit", function (e) {
-            e.preventDefault(); // 1. 通常のフォーム送信をキャンセル
-            const checked = document.querySelectorAll(
+            const checkedCount = document.querySelectorAll(
               'input[name="present"]:checked'
-            );
-            if (checked.length === 0) {
+            ).length;
+            if (checkedCount === 0) {
+              e.preventDefault();
               alert("景品を1つ以上選択してください。");
-              return;
             }
-
-            const form = e.target;
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-              method: "POST",
-              body: formData,
-            })
-              .then((res) => res.text())
-              .then((result) => {
-                console.log(result);
-                // 任意：送信ボタンを無効にする
-                
-                form.querySelector("button[type='submit']").disabled = true;
-                form.querySelector("button[type='submit']").textContent = "送信中...";
-              })
-              .catch((err) => {
-                alert("送信に失敗しました");
-                console.error(err);
-              });
           });
       </script>
 
