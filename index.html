@@ -34,58 +34,128 @@
       method="post"
       class="h-adr"
     >
-    <h2>景品応募の流れ</h2>
-    <ol>
-      <li>①〜③に全て回答する</li>
-      <li></li>
-    </ol>
+      <h2>景品応募の流れ</h2>
+      <ol>
+        <li>①〜③に全て回答する</li>
+        <li></li>
+      </ol>
       <h2>①ご希望の景品を選択してください</h2>
-      
-      <h3>ご希望の景品を以下より選択してください<br>複数選択可能です！</h3>
-      
+
+      <h3>ご希望の景品を以下より選択してください<br />複数選択可能です！</h3>
+
       <div class="present-grid">
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="1" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="2" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="3" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="4" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="5" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="6" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="7" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="8" class="present"></label>
-      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="9" class="present"></label>
-      
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="1"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="2"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="3"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="4"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="5"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="6"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="7"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="8"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            name="present"
+            value="9"
+            class="present"
+        /></label>
       </div>
-      
-      <h3>どれでもいい場合は以下を選択してください<br>
-      </h3>
-      <label><input type="checkbox">どれでもいい</label><br><br>
+
+      <h3>どれでもいい場合は以下を選択してください<br /></h3>
+      <label
+        ><input type="checkbox" name="present" value="10" />どれでもいい</label
+      ><br /><br />
 
       <style>
         .present-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3列にする */
-  gap: 10px;
-  max-width: 600px;
-  margin: auto;
-}
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* 3列にする */
+          gap: 10px;
+          max-width: 600px;
+          margin: auto;
+        }
 
-.present-grid label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+        .present-grid label {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
-.present-grid img.present {
-  width: 100%;     /* 親要素に合わせて拡大縮小 */
-  height: auto;
-  max-width: 100px; /* 最大幅を指定して画像が大きくなりすぎないように */
-}
+        .present-grid img.present {
+          width: 100%; /* 親要素に合わせて拡大縮小 */
+          height: auto;
+          max-width: 100px; /* 最大幅を指定して画像が大きくなりすぎないように */
+        }
       </style>
+
+      <script>
+        document
+          .getElementById("userForm")
+          .addEventListener("submit", function (e) {
+            const checkedCount = document.querySelectorAll(
+              'input[name="present"]:checked'
+            ).length;
+            if (checkedCount === 0) {
+              e.preventDefault();
+              alert("景品を1つ以上選択してください。");
+            }
+          });
+      </script>
 
       <span class="p-country-name" style="display: none">Japan</span>
       <h2 class="question">②住所を入力してください</h2>
       <h3>💡郵便番号を入力すると町名まで自動で入力されます</h3>
-      <h3>💡マンションの部屋番号なども《以降の住所》にご入力をお願いいたします</h3>
+      <h3>
+        💡マンションの部屋番号なども《以降の住所》にご入力をお願いいたします
+      </h3>
       〒<input
         type="tel"
         name="address-1"
@@ -102,32 +172,34 @@
         class="p-postal-code"
         size="4"
         maxlength="4"
-      /><br /><br>
+      /><br /><br />
       <div class="address">
-      都道府県:
-      <input
-        type="text"
-        name="address-3"
-        id="address-3"
-        class="p-region"
-      /><br />
-      地区町村:
-      <input
-        type="text"
-        name="address-4"
-        id="address-4"
-        class="p-locality"
-      /><br />
-      町名:
-      <input
-        type="text"
-        name="address-5"
-        id="address-5"
-        class="p-street-address p-extended-address"
-      /></div>
-      以降の住所: <input type="text" name="address-6" id="address-6" required /><br>
+        都道府県:
+        <input
+          type="text"
+          name="address-3"
+          id="address-3"
+          class="p-region"
+        /><br />
+        地区町村:
+        <input
+          type="text"
+          name="address-4"
+          id="address-4"
+          class="p-locality"
+        /><br />
+        町名:
+        <input
+          type="text"
+          name="address-5"
+          id="address-5"
+          class="p-street-address p-extended-address"
+        />
+      </div>
+      以降の住所:
+      <input type="text" name="address-6" id="address-6" required /><br />
       <h2 class="question">③日中繋がる連絡先を入力してください</h2>
-      
+
       <input
         type="tel"
         name="phoneNumber-1"
@@ -227,7 +299,6 @@
     </nav>
 
     <style>
-      
       .menu {
         position: fixed;
         left: 0;
@@ -297,10 +368,8 @@
       }
 
       .address input {
-  background-color: #fff !important;
-}
-
-
+        background-color: #fff !important;
+      }
     </style>
   </body>
 </html>
