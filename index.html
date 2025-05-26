@@ -30,7 +30,7 @@
     </h1>
     <form
       id="userForm"
-      action="https://script.google.com/macros/s/AKfycbygWleg_95qL_49ZudrOsZF1mkw8HjHyWpb4W6MZBTb8SsxkmkTJnx4LnirUpEICXNmVg/exec"
+      action="https://script.google.com/macros/s/AKfycbyxyYh-sxx-JIofUun69kMow9wvt0gndQ-bUdFeqilSSUBDmOcF9gXWl25l9Nhv4Vbb5g/exec"
       method="post"
       class="h-adr"
     >
@@ -45,64 +45,60 @@
 
       <div class="present-grid">
         <label
-          ><input type="checkbox" name="present"
-          value="1" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品1" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present"
-          value="2" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品2" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present"
-          value="3" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品3" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-        ><input type="checkbox" name="present"
-        value="4" /><img
-          src="https://i.ibb.co/Wv8X3LVh/1.png"            
-          class="present"
-      /></label>
-        <label
-          ><input type="checkbox" name="present"
-          value="5" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品4" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present"
-          value="6" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品5" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present"
-          value="7" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品6" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present"
-          value="8" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品7" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
         <label
-          ><input type="checkbox" name="present"
-          value="9" /><img
-            src="https://i.ibb.co/Wv8X3LVh/1.png"            
+          ><input type="checkbox" name="present" value="景品8" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
+            class="present"
+        /></label>
+        <label
+          ><input type="checkbox" name="present" value="景品9" /><img
+            src="https://i.ibb.co/Wv8X3LVh/1.png"
             class="present"
         /></label>
       </div>
 
       <h3>どれでもいい場合は以下を選択してください<br /></h3>
       <label
-        ><input type="checkbox" name="present" value="10" class="other" />どれでもいい</label
+        ><input
+          type="checkbox"
+          name="present"
+          value="どれでもいい"
+          class="other"
+        />どれでもいい</label
       ><br /><br />
 
       <style>
@@ -131,15 +127,38 @@
         document
           .getElementById("userForm")
           .addEventListener("submit", function (e) {
-            const checkedCount = document.querySelectorAll(
+            e.preventDefault(); // 1. 通常のフォーム送信をキャンセル
+            const checked = document.querySelectorAll(
               'input[name="present"]:checked'
-            ).length;
-            if (checkedCount === 0) {
-              e.preventDefault();
+            );
+            if (checked.length === 0) {
               alert("景品を1つ以上選択してください。");
+              return;
             }
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+              method: "POST",
+              body: formData,
+            })
+              .then((res) => res.text())
+              .then((result) => {
+                console.log(result);
+                // 任意：送信ボタンを無効にする
+                
+                form.querySelector("button[type='submit']").disabled = true;
+                form.querySelector("button[type='submit']").textContent = "送信中...";
+              })
+              .catch((err) => {
+                alert("送信に失敗しました");
+                console.error(err);
+              });
           });
       </script>
+
+      
 
       <span class="p-country-name" style="display: none">Japan</span>
       <h2 class="question">②住所を入力してください</h2>
@@ -263,7 +282,8 @@
         </li>
         <li>
           <a href="https://coolsharetakarazuka.github.io/map/" target="_self"
-            ><i class="fa-solid fa-location-dot"></i><br /><span class="iconname"
+            ><i class="fa-solid fa-location-dot"></i><br /><span
+              class="iconname"
               >マップ</span
             ></a
           >
@@ -271,7 +291,8 @@
         <li>
           <a
             href="
-          https://coolsharetakarazuka.github.io/how_to_play/" target="_self"
+          https://coolsharetakarazuka.github.io/how_to_play/"
+            target="_self"
             ><i class="fa-regular fa-list-ol"></i><br /><span class="iconname"
               >遊び方</span
             ></a
