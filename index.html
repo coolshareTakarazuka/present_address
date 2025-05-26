@@ -34,55 +34,58 @@
       method="post"
       class="h-adr"
     >
+    <h2>景品応募の流れ</h2>
+    <ol>
+      <li>①〜③に全て回答する</li>
+      <li></li>
+    </ol>
       <h2>①ご希望の景品を選択してください</h2>
+      
+      <h3>ご希望の景品を以下より選択してください<br>複数選択可能です！</h3>
+      
+      <div class="present-grid">
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="1" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="2" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="3" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="4" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="5" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="6" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="7" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="8" class="present"></label>
+      <label><input type="checkbox"><img src="https://i.ibb.co/Wv8X3LVh/1.png" name="present" value="9" class="present"></label>
+      
+      </div>
+      
+      <h3>どれでもいい場合は以下を選択してください<br>
+      </h3>
+      <label><input type="checkbox">どれでもいい</label><br><br>
 
-      <h3>第一希望</h3>
-      <select name="firstChoice">
-        <option value="1"></option>
-        <option value="A">景品1</option>
-        <option value="B">景品2</option>
-        <option value="C">景品3</option>
-        <option value="D">景品4</option>
-        <option value="E">景品5</option>
-        <option value="F">景品6</option>
-        <option value="G">景品7</option>
-        <option value="H">景品8</option>
-        <option value="I">景品9</option>
-        <option value="J">景品10</option>
-      </select>
+      <style>
+        .present-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列にする */
+  gap: 10px;
+  max-width: 600px;
+  margin: auto;
+}
 
-      <h3>第二希望</h3>
-      <select name="secondChoice">
-        <option value="2"></option>
-        <option value="A">景品1</option>
-        <option value="B">景品2</option>
-        <option value="C">景品3</option>
-        <option value="D">景品4</option>
-        <option value="E">景品5</option>
-        <option value="F">景品6</option>
-        <option value="G">景品7</option>
-        <option value="H">景品8</option>
-        <option value="I">景品9</option>
-        <option value="J">景品10</option>
-      </select>
+.present-grid label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      <h3>第三希望</h3>
-      <select name="thirdChoice">
-        <option value="3"></option>
-        <option value="A">景品1</option>
-        <option value="B">景品2</option>
-        <option value="C">景品3</option>
-        <option value="D">景品4</option>
-        <option value="E">景品5</option>
-        <option value="F">景品6</option>
-        <option value="G">景品7</option>
-        <option value="H">景品8</option>
-        <option value="I">景品9</option>
-        <option value="J">景品10</option></select
-      ><br />
+.present-grid img.present {
+  width: 100%;     /* 親要素に合わせて拡大縮小 */
+  height: auto;
+  max-width: 100px; /* 最大幅を指定して画像が大きくなりすぎないように */
+}
+      </style>
 
       <span class="p-country-name" style="display: none">Japan</span>
-      <h3 class="question">②住所を入力してください</h3>
+      <h2 class="question">②住所を入力してください</h2>
+      <h3>💡郵便番号を入力すると町名まで自動で入力されます</h3>
+      <h3>💡マンションの部屋番号なども《以降の住所》にご入力をお願いいたします</h3>
       〒<input
         type="tel"
         name="address-1"
@@ -99,7 +102,8 @@
         class="p-postal-code"
         size="4"
         maxlength="4"
-      /><br />
+      /><br /><br>
+      <div class="address">
       都道府県:
       <input
         type="text"
@@ -120,10 +124,10 @@
         name="address-5"
         id="address-5"
         class="p-street-address p-extended-address"
-      /><br />
-      以降の住所: <input type="text" name="address-6" id="address-6" />
-      <h3 class="question">③日中繋がる連絡先を入力してください</h3>
-      <h4>ハイフンなしで数値のみで入力してください。</h4>
+      /></div>
+      以降の住所: <input type="text" name="address-6" id="address-6" required /><br>
+      <h2 class="question">③日中繋がる連絡先を入力してください</h2>
+      
       <input
         type="tel"
         name="phoneNumber-1"
@@ -131,6 +135,7 @@
         class="phoneNumber"
         size="4"
         maxlength="4"
+        required
       />
       -
       <input
@@ -140,6 +145,7 @@
         class="phoneNumber"
         size="4"
         maxlength="4"
+        required
       />
       -
       <input
@@ -149,6 +155,7 @@
         class="phoneNumber"
         size="4"
         maxlength="4"
+        required
       /><br /><br />
 
       <script>
@@ -220,11 +227,7 @@
     </nav>
 
     <style>
-      @media screen and (max-width: 768px) {
-        * {
-          font-size: 85%; /* スマホではフォントサイズを小さくする */
-        }
-      }
+      
       .menu {
         position: fixed;
         left: 0;
@@ -274,9 +277,10 @@
         justify-content: center; /* 横方向の中央揃え */
         text-align: center;
         background: skyblue;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        font-size: 85%;
       }
 
       input {
@@ -291,6 +295,12 @@
       select {
         font-size: 200%;
       }
+
+      .address input {
+  background-color: #fff !important;
+}
+
+
     </style>
   </body>
 </html>
