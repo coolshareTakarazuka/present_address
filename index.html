@@ -35,29 +35,192 @@
       class="h-adr"
     >
       <h2>景品応募の流れ</h2>
-      <h3>
-        <ol>
-          <li>①〜④に全て回答する</li>
-          <h5>
-            💡ご提供いただいた情報は、景品当選時の発送以外の目的では使用いたしません
-          </h5>
-          <i class="fa fa-angle-double-down"></i>
-          <li>8スタンプごとに何度でも応募可能</li>
-          <h5>
-            💡応募1回ごとに1口として抽選に反映されるため、応募すればするほど当選確率がアップ！
-            <br />💡必ず当選するというわけではありません
-          </h5>
-          <i class="fa fa-angle-double-down"></i>
-          <li>
-            10月24日(金) 18:00~<br />
-            <i class="fa-brands fa-youtube youtube2"></i>YouTube
-            Liveにて当選発表！！
-          </li>
-        </ol>
-      </h3>
+
+      <div class="stepbar">
+        <div class="stepbarwrap">
+          <div class="steptitle">
+            <div class="stepcircle content">
+              <span>STEP<br />1</span>
+            </div>
+            <p class="title">①景品を選ぶ</p>
+          </div>
+          <div class="steptxt">
+            <span class="txt">🎁 お好きな景品を全てお選びください</span>
+          </div>
+          <span class="stepline"></span>
+        </div>
+
+        <div class="stepbarwrap">
+          <div class="steptitle">
+            <div class="stepcircle content">
+              <span>STEP<br />2</span>
+            </div>
+            <p class="title">②名前・③住所・④連絡先を入力</p>
+          </div>
+          <div class="steptxt">
+            <span class="txt"
+              >景品当選時の発送する際に必要となります。<br />その他の目的では使用しません</span
+            >
+          </div>
+          <span class="stepline"></span>
+        </div>
+
+        <div class="stepbarwrap">
+          <div class="steptitle">
+            <div class="stepcircle content">
+              <span>STEP<br />3</span>
+            </div>
+            <p class="title">景品に応募</p>
+          </div>
+          <div class="steptxt">
+            <span class="txt"
+              >スタンプが8個たまるごとに、好きな景品に応募できます。<br />たくさん集めて何度でも挑戦しよう！</span
+            >
+          </div>
+          <span class="stepline"></span>
+        </div>
+
+        <div class="stepbarwrap">
+          <div class="steptitle">
+            <div class="stepcircle">
+              <span>STEP<br />4</span>
+            </div>
+            <p class="title">
+              10/24(金) 18:00〜<br />
+              <i class="fa-brands fa-youtube youtubeicon"></i> YouTube
+              Liveにて当選発表
+            </p>
+          </div>
+          <div class="steptxt">
+            <span class="txt"></span>
+          </div>
+          <span class="stepline"></span>
+        </div>
+
+        <div class="stepbarwrap">
+          <div class="steptitle">
+            <div class="stepcircle">
+              <span>STEP<br />5</span>
+            </div>
+            <p class="title">
+              《🎉 当選の場合》<br />
+              <i class="fa-brands fa-line lineicon"></i>
+              ご登録のLINEに<br />メッセージをお送りします
+            </p>
+          </div>
+          <div class="steptxt">
+            <span class="txt"
+              >メッセージのURLから送り先の住所をご確認ください</span
+            >
+          </div>
+          <span class="stepline"></span>
+        </div>
+
+        <div class="stepbarwrap">
+          <div class="steptitle">
+            <div class="stepcircle">
+              <span>STEP<br />6</span>
+            </div>
+            <p class="title">
+              《🎉 当選の場合》<br />
+              住所宛に景品を送付します！！
+            </p>
+          </div>
+          <div class="steptxt">
+            <span class="txt"></span>
+          </div>
+          <span class="stepline"></span>
+        </div>
+      </div>
+
+      <style>
+        .stepbar {
+          margin: 0 auto;
+          width: 80%;
+        }
+
+        .stepbar .stepbarwrap {
+          margin: 2em 0;
+          position: relative;
+        }
+
+        .stepbar .stepbarwrap .steptitle {
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .stepbar .stepbarwrap .steptitle .stepcircle {
+          display: inline-block;
+          width: 3em;
+          height: 3em;
+          content: "";
+          border-radius: 50%;
+          background-color: #000;
+          color: #fff;
+          text-align: center;
+        }
+
+        .stepbar .stepbarwrap .steptitle .stepcircle span {
+          display: inline-block;
+          line-height: 1.2em;
+          font-size: 0.8em;
+          font-weight: bold;
+          position: relative;
+          top: 0.9em;
+        }
+
+        .stepbar .stepbarwrap .steptitle .title {
+          margin: 0.5em;
+          font-weight: bold;
+          font-size: 1.2em;
+        }
+
+        .stepbar .stepbarwrap .steptxt {
+          padding-left: 3.5em;
+        }
+
+        .stepbar .stepbarwrap .steptxt .txt {
+          font-size: 0.9em;
+        }
+
+        .stepbar .stepbarwrap .stepline {
+          width: 1px;
+          height: calc(100% + 2em);
+          background-color: #000;
+          position: absolute;
+          top: 1em;
+          left: 1.5em;
+          z-index: -1;
+        }
+
+        .stepbarwrap:last-of-type .stepline:last-of-type {
+          display: none;
+        }
+
+        @media screen and (max-width: 960px) {
+          .stepbar {
+            width: 90%;
+          }
+        }
+
+        i.lineicon {
+          color: #06c755;
+        }
+
+        i.youtubeicon {
+          color: #ff0000;
+        }
+
+        div.content {
+          background-color: orange !important;
+        }
+      </style>
+
       <h2>①🎁ご希望の景品を全て選択してください</h2>
 
-      <h3>ご希望の景品を以下より選択してください<br />お好きな景品を全て選んでください🎁</h3>
+      <h3>
+        ご希望の景品を以下より選択してください<br />お好きな景品を全て選んでください🎁
+      </h3>
 
       <div class="present-grid">
         <label
@@ -276,11 +439,11 @@
           });
       </script>
 
-      <h2 class="question">🙋‍♂②お名前を入力してください</h2>
+      <h2 class="question">②🙋‍♂お名前を入力してください</h2>
       <h3>景品当選した場合こちらのお名前宛に、発送いたします</h3>
       <input type="text" name="name" />
       <span class="p-country-name" style="display: none">Japan</span>
-      <h2 class="question">🏠③住所を入力してください</h2>
+      <h2 class="question">③🏠住所を入力してください</h2>
       <h3>💡郵便番号を入力すると町名まで自動で入力されます</h3>
       <h3>
         💡マンションの部屋番号なども含め《以降の住所》にご入力をお願いいたします
@@ -327,7 +490,7 @@
       </div>
       以降の住所:
       <input type="text" name="address-6" id="address-6" required /><br />
-      <h2 class="question">📱④日中繋がる連絡先を入力してください</h2>
+      <h2 class="question">④📱日中繋がる連絡先を入力してください</h2>
 
       <input
         type="tel"
