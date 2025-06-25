@@ -18,6 +18,16 @@
     />
   </head>
   <body>
+
+    <script>
+function disableButton(form) {
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = '送信中...';
+  return true; // フォームの送信を続ける
+}
+</script>
+    
     <h1>
       <img
         src="https://i.ibb.co/Wv8X3LVh/1.png"
@@ -28,12 +38,14 @@
       クールシェア宝塚2025<br />
       景品応募フォーム
     </h1>
-    <form
+    <form　onsubmit="disableButton(this)"
       id="userForm"
-      action="https://script.google.com/macros/s/AKfycbwprqz21mKv6fuyR8U8T1Lk6r55BWf4vKrwXGU7dPfIUcYFVXesSb4EaWN-YDZCO_1nmA/exec"
+      action="https://script.google.com/macros/s/AKfycbwggc-IdrvrhtR3S8CFJlknahNoAnQNysyD57eDL4uUxM1W_49nZuaL3yWhI9xcQMZ-mw/exec"
       method="post"
       class="h-adr"
     >
+
+      
       <h2>景品応募の流れ</h2>
 
       <div class="stepbar">
